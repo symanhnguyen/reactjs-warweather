@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 const api = {
-  key: "23669aa50bd83092af6652dc154920a7",
+  key: "7d4ef5d23648c7c62acd3ccfa1a0a30b",
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
@@ -44,6 +44,7 @@ function App() {
       "Friday",
       "Saturday",
     ];
+
     let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
@@ -51,6 +52,7 @@ function App() {
 
     return `${day} ${date} ${month} ${year}`;
   };
+
   return (
     <div
       className={
@@ -61,13 +63,12 @@ function App() {
           : "app"
       }
     >
-      <h1 className="title">War weather</h1>
       <main>
         <div className="search-box">
           <input
             type="text"
             className="search-bar"
-            placeholder="Search the city"
+            placeholder="Search..."
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
@@ -82,7 +83,7 @@ function App() {
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
-              <div className="temp">{Math.round(weather.main.temp)}ºC</div>
+              <div className="temp">{Math.round(weather.main.temp)}°c</div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
           </div>
